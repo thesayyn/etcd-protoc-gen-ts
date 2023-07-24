@@ -9,6 +9,8 @@ x-variables:
 services:
     etcd-1:
         <<: *common_settings
+        ports: 
+            - "2379:2379"
         command:
             - '--name=etcd-1'
             - '--initial-advertise-peer-urls=http://etcd-1:2380'

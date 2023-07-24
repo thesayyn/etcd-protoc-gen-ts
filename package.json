@@ -1,0 +1,18 @@
+{
+    "dependencies": {
+        "protoc-gen-ts": "^0.8.6",
+        "@grpc/grpc-js": "^1.8.18",
+        "typescript": "^5.1.6",
+        "google-protobuf": "^3.21.2",
+        "etcd3": "^1.1.0",
+        "random-word-slugs": "^0.1.7"
+    },
+    "devDependencies": {
+        "@types/google-protobuf": "^3.15.6"
+    },
+    "scripts": {
+        "gen": "protoc -I=proto --ts_opt=explicit_override --ts_opt=no_namespace --ts_opt=unary_rpc_promise=true --ts_out=api proto/rpc.proto",
+        "build": "tsc index.ts --target esnext --module commonjs --moduleResolution node --outDir dist",
+        "run": "pnpm run build && node dist/index.js"
+    }
+}
